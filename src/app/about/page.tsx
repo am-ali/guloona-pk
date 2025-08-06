@@ -1,7 +1,12 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Heart, Users, Globe, Leaf } from "lucide-react";
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
 
 export default function AboutPage() {
   const values = [

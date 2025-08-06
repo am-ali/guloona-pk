@@ -6,12 +6,16 @@ export async function GET() {
     console.log('🔄 Testing MongoDB connection...');
     
     const mongoose = await connectToDatabase();
-    
+
+    if (!mongoose || !mongoose.connection) {
+      throw new Error('Failed to connect to MongoDB: mongoose.connection is null');
+    }
+
     console.log('✅ MongoDB connection test successful');
     console.log('Connection state:', mongoose.connection.readyState);
     console.log('Database name:', mongoose.connection.name);
     console.log('Host:', mongoose.connection.host);
-    
+
     return NextResponse.json({
       success: true,
       message: 'MongoDB connection successful',

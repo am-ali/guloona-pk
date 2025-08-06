@@ -27,7 +27,7 @@ export interface UserProfile {
 }
 
 // API Configuration
-const API_BASE_URL = process.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 // API Helper Functions
 const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
@@ -57,12 +57,16 @@ const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
 
 const getProfileFromAPI = async (userId: string): Promise<UserProfile | null> => {
   try {
-    const response = await apiRequest(`/user-profile/${userId}`);
-    return response.data;
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('404')) {
+    const response = await fetch(`/api/user-profile/${userId}`);
+    if (response.status === 404) {
       return null; // Profile doesn't exist yet
     }
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.success ? data.data : null;
+  } catch (error) {
     console.error('Error fetching profile from API:', error);
     return getProfileFromLocalStorage(userId); // Fallback to localStorage
   }
@@ -70,11 +74,23 @@ const getProfileFromAPI = async (userId: string): Promise<UserProfile | null> =>
 
 const createProfileInAPI = async (profile: UserProfile): Promise<UserProfile | null> => {
   try {
-    const response = await apiRequest('/user-profile', {
+    const response = await fetch('/api/user-profile', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(profile),
     });
-    return response.data;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    if (data.success) {
+      // Also save to localStorage as backup
+      saveProfileToLocalStorage(profile.user_id!, data.data);
+      return data.data;
+    }
+    return null;
   } catch (error) {
     console.error('Error creating profile in API:', error);
     return saveProfileToLocalStorage(profile.user_id!, profile); // Fallback to localStorage
@@ -83,11 +99,23 @@ const createProfileInAPI = async (profile: UserProfile): Promise<UserProfile | n
 
 const updateProfileInAPI = async (userId: string, profileData: Partial<UserProfile>): Promise<UserProfile | null> => {
   try {
-    const response = await apiRequest(`/user-profile/${userId}`, {
+    const response = await fetch(`/api/user-profile/${userId}`, {
       method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(profileData),
     });
-    return response.data;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    if (data.success) {
+      // Also save to localStorage as backup
+      saveProfileToLocalStorage(userId, data.data);
+      return data.data;
+    }
+    return null;
   } catch (error) {
     console.error('Error updating profile in API:', error);
     // Fallback to localStorage
@@ -167,23 +195,38 @@ export const UserProfileProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
     setLoading(true);
     try {
-      // Use localStorage for profile storage in this demo
-      const existingProfile = getProfileFromLocalStorage(user.id);
+      console.log('🔍 Fetching profile for user:', user.id);
+      
+      // Try to fetch from MongoDB API first
+      let existingProfile = await getProfileFromAPI(user.id);
       
       if (existingProfile) {
+        console.log('✅ Profile found in MongoDB');
         setProfile(existingProfile);
       } else {
-        // Create a new profile if none exists
-        const newProfile: UserProfile = {
-          user_id: user.id,
-          first_name: user.user_metadata?.first_name || '',
-          last_name: user.user_metadata?.last_name || '',
-          created_at: new Date(),
-          updated_at: new Date(),
-        };
+        console.log('❌ Profile not found in MongoDB, checking localStorage...');
+        // Check localStorage as fallback
+        existingProfile = getProfileFromLocalStorage(user.id);
         
-        saveProfileToLocalStorage(user.id, newProfile);
-        setProfile(newProfile);
+        if (existingProfile) {
+          console.log('✅ Profile found in localStorage, syncing to MongoDB...');
+          // Sync localStorage profile to MongoDB
+          const syncedProfile = await createProfileInAPI(existingProfile);
+          setProfile(syncedProfile || existingProfile);
+        } else {
+          console.log('📝 Creating new profile...');
+          // Create a new profile if none exists
+          const newProfile: UserProfile = {
+            user_id: user.id,
+            first_name: user.user_metadata?.first_name || '',
+            last_name: user.user_metadata?.last_name || '',
+            created_at: new Date(),
+            updated_at: new Date(),
+          };
+          
+          const createdProfile = await createProfileInAPI(newProfile);
+          setProfile(createdProfile || newProfile);
+        }
       }
     } catch (error) {
       console.error('Error in fetchProfile:', error);
@@ -196,6 +239,7 @@ export const UserProfileProvider: React.FC<{ children: React.ReactNode }> = ({ c
         updated_at: new Date(),
       };
       setProfile(fallbackProfile);
+      saveProfileToLocalStorage(user.id, fallbackProfile);
     } finally {
       setLoading(false);
     }
@@ -205,17 +249,30 @@ export const UserProfileProvider: React.FC<{ children: React.ReactNode }> = ({ c
     if (!user || !isAuthenticated) return false;
 
     try {
-      // Update local state and localStorage
-      const updatedProfile = {
-        ...profile,
-        ...profileData,
-        user_id: user.id,
-        updated_at: new Date(),
-      } as UserProfile;
+      console.log('📝 Updating profile for user:', user.id);
       
-      setProfile(updatedProfile);
-      saveProfileToLocalStorage(user.id, updatedProfile);
-      return true;
+      // Try to update in MongoDB first
+      const updatedProfile = await updateProfileInAPI(user.id, profileData);
+      
+      if (updatedProfile) {
+        console.log('✅ Profile updated in MongoDB');
+        setProfile(updatedProfile);
+        return true;
+      } else {
+        console.log('⚠️ Failed to update in MongoDB, falling back to localStorage');
+        // Fallback to localStorage update
+        const currentProfile = profile || getProfileFromLocalStorage(user.id);
+        const updated = {
+          ...currentProfile,
+          ...profileData,
+          user_id: user.id,
+          updated_at: new Date(),
+        } as UserProfile;
+        
+        setProfile(updated);
+        saveProfileToLocalStorage(user.id, updated);
+        return true;
+      }
     } catch (error) {
       console.error('Error in updateProfile:', error);
       return false;
