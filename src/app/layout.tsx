@@ -33,9 +33,17 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "Guloona - Pakistani Women's Fashion",
-  description: "Custom dress orders and beautiful Pakistani women's fashion with floral-inspired designs.",
+  title: "guloona - A Floral Fable | Where Elegance Meets Simplicity",
+  description: "Custom minimalist dresses and floral-inspired fashion. Where elegance meets simplicity.",
   keywords: ["Pakistani fashion", "women's clothing", "custom dresses", "ethnic wear"],
+  icons: {
+    icon: [
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

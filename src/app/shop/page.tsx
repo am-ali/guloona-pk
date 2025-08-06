@@ -77,6 +77,9 @@ export default function ShopPage() {
           <h1 className="font-serif text-5xl md:text-6xl text-foreground mb-4">
             Our Collection
           </h1>
+          <p className="font-script text-2xl text-primary mb-4" style={{ color: "color-mix(in hsl, hsl(var(--primary)) 80%, black 20%)" }}>
+            "Elegance blooms in every thread"
+          </p>
           <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover timeless pieces crafted with love and attention to detail. Each dress tells a story of elegance and simplicity.
           </p>
