@@ -1,15 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
-import connectToDatabase from '@/lib/mongoose';
+import connectDB from '@/lib/mongoose';
 import UserProfile from '@/lib/models/UserProfile';
 
 // GET - Fetch user profile by user_id
-export async function GET(request: NextRequest, { params }: { params: { userId: string } }) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ userId: string }> }
+) {
   try {
     console.log('🔄 Connecting to MongoDB for profile fetch...');
-    await connectToDatabase();
+    await connectDB();
     console.log('✅ Connected to MongoDB');
 
-    const { userId } = params;
+    const { userId } = await params;
     
     if (!userId) {
       return NextResponse.json(
@@ -48,13 +51,16 @@ export async function GET(request: NextRequest, { params }: { params: { userId: 
 }
 
 // PUT - Update user profile
-export async function PUT(request: NextRequest, { params }: { params: { userId: string } }) {
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ userId: string }> }
+) {
   try {
     console.log('🔄 Connecting to MongoDB for profile update...');
-    await connectToDatabase();
+    await connectDB();
     console.log('✅ Connected to MongoDB');
 
-    const { userId } = params;
+    const { userId } = await params;
     const body = await request.json();
     
     if (!userId) {
@@ -99,13 +105,16 @@ export async function PUT(request: NextRequest, { params }: { params: { userId: 
 }
 
 // DELETE - Delete user profile
-export async function DELETE(request: NextRequest, { params }: { params: { userId: string } }) {
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ userId: string }> }
+) {
   try {
     console.log('🔄 Connecting to MongoDB for profile deletion...');
-    await connectToDatabase();
+    await connectDB();
     console.log('✅ Connected to MongoDB');
 
-    const { userId } = params;
+    const { userId } = await params;
     
     if (!userId) {
       return NextResponse.json(
