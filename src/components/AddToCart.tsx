@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 import { ShoppingBag, Check } from "lucide-react";
 
 interface Product {
@@ -24,6 +25,7 @@ interface AddToCartProps {
 const AddToCart = ({ product, className = "" }: AddToCartProps) => {
   const { addItem, openCart } = useCart();
   const { isAuthenticated } = useAuth();
+  const { toast } = useToast();
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [isAdded, setIsAdded] = useState(false);
 
@@ -32,7 +34,11 @@ const AddToCart = ({ product, className = "" }: AddToCartProps) => {
 
   const handleAddToCart = () => {
     if (product.size && product.size.length > 0 && !selectedSize) {
-      alert('Please select a size');
+      toast({
+        title: "Size Required",
+        description: "Please select a size before adding to cart.",
+        variant: "destructive",
+      });
       return;
     }
 
@@ -59,19 +65,19 @@ const AddToCart = ({ product, className = "" }: AddToCartProps) => {
   };
 
   return (
-    <div className={`space-y-4 ${className}`}>
+    <div className={`space-y-3 lg:space-y-4 ${className}`}>
       {/* Size Selection */}
       {product.size && product.size.length > 0 && (
         <div>
-          <label className="block text-sm font-medium text-foreground mb-2">
+          <label className="block text-xs lg:text-sm font-medium text-foreground mb-1.5 lg:mb-2">
             Size
           </label>
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-1.5 lg:gap-2 flex-wrap">
             {product.size.map((size) => (
               <Badge
                 key={size}
                 variant={selectedSize === size ? "default" : "outline"}
-                className={`cursor-pointer px-3 py-1 transition-colors ${
+                className={`cursor-pointer px-2 lg:px-3 py-0.5 lg:py-1 transition-colors text-xs ${
                   selectedSize === size 
                     ? "bg-primary text-primary-foreground" 
                     : "hover:bg-primary/10"
@@ -88,21 +94,21 @@ const AddToCart = ({ product, className = "" }: AddToCartProps) => {
       {/* Add to Cart Button */}
       <Button
         variant="elegant"
-        size="elegant"
+        size="sm"
         onClick={handleAddToCart}
-        className={`w-full transition-all duration-300 ${
+        className={`w-full transition-all duration-300 h-9 lg:h-12 text-xs lg:text-base ${
           isAdded ? "bg-green-500 hover:bg-green-600" : ""
         }`}
         disabled={isAdded}
       >
         {isAdded ? (
           <>
-            <Check className="w-5 h-5 mr-2" />
+            <Check className="w-3 h-3 lg:w-5 lg:h-5 mr-1 lg:mr-2" />
             Added to Cart!
           </>
         ) : (
           <>
-            <ShoppingBag className="w-5 h-5 mr-2" />
+            <ShoppingBag className="w-3 h-3 lg:w-5 lg:h-5 mr-1 lg:mr-2" />
             Add to Cart
           </>
         )}

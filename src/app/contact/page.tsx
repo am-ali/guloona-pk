@@ -145,36 +145,36 @@ export default function ContactPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-hero-gradient text-center">
+      <section className="pt-24 pb-8 lg:pb-12 bg-hero-gradient text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-foreground mb-6">
+          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-foreground mb-4 lg:mb-6">
             Get in Touch
           </h1>
-          <p className="font-script text-2xl text-primary mb-4" style={{ color: "color-mix(in hsl, hsl(var(--primary)) 80%, black 20%)" }}>
+          <p className="font-script text-lg md:text-2xl text-primary mb-3 lg:mb-4" style={{ color: "color-mix(in hsl, hsl(var(--primary)) 80%, black 20%)" }}>
             We'd love to hear from you
           </p>
-          <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-sans text-sm lg:text-lg text-muted-foreground max-w-2xl mx-auto">
             Whether you have questions about our collection, need help with sizing, or want to create a custom piece, we're here to help make your Guloona experience beautiful.
           </p>
         </div>
       </section>
 
       {/* Contact Methods */}
-      <section className="py-16 bg-background">
+      <section className="py-12 lg:py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {contactMethods.map((method, index) => (
-              <Card key={index} className="p-8 text-center shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
-                <div className={`w-16 h-16 ${method.color} rounded-full flex items-center justify-center mx-auto mb-6`}>
-                  <method.icon className="w-8 h-8 text-white" />
+              <Card key={index} className="p-6 lg:p-8 text-center shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
+                <div className={`w-12 h-12 lg:w-16 lg:h-16 ${method.color} rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6`}>
+                  <method.icon className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                 </div>
-                <h3 className="font-serif text-xl text-foreground mb-3">{method.title}</h3>
-                <p className="font-sans text-muted-foreground mb-6">{method.description}</p>
+                <h3 className="font-serif text-lg lg:text-xl text-foreground mb-2 lg:mb-3">{method.title}</h3>
+                <p className="font-sans text-sm lg:text-base text-muted-foreground mb-4 lg:mb-6">{method.description}</p>
                 <a 
                   href={method.link}
                   target={method.link.startsWith('http') ? '_blank' : undefined}
                   rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`inline-flex items-center justify-center ${method.color} text-white px-6 py-3 rounded-full font-medium hover:scale-105 transition-transform duration-300`}
+                  className={`inline-flex items-center justify-center ${method.color} text-white px-4 lg:px-6 py-2.5 lg:py-3 rounded-full font-medium hover:scale-105 transition-transform duration-300 text-sm lg:text-base`}
                 >
                   {method.action}
                 </a>
@@ -185,13 +185,13 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-12 lg:py-16 bg-muted/20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             
             {/* Contact Form */}
-            <Card className="p-8 md:p-12 shadow-soft">
-              <h2 className="font-serif text-3xl text-foreground mb-8">Send us a Message</h2>
+            <Card className="p-6 md:p-8 lg:p-12 shadow-soft">
+              <h2 className="font-serif text-2xl lg:text-3xl text-foreground mb-6 lg:mb-8">Send us a Message</h2>
               
               {/* Success/Error Messages */}
               {submitStatus === 'success' && (
@@ -300,65 +300,65 @@ export default function ContactPage() {
             </Card>
 
             {/* Business Info */}
-            <div className="space-y-8">
-              <Card className="p-8 shadow-card">
-                <h3 className="font-serif text-2xl text-foreground mb-6">Business Hours</h3>
-                <div className="space-y-4">
+            <div className="space-y-6 lg:space-y-8">
+              <Card className="p-6 lg:p-8 shadow-card">
+                <h3 className="font-serif text-xl lg:text-2xl text-foreground mb-4 lg:mb-6">Business Hours</h3>
+                <div className="space-y-3 lg:space-y-4">
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-primary" />
+                    <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-primary flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Monday - Friday</p>
-                      <p className="text-sm text-muted-foreground">9:00 AM - 6:00 PM PKT</p>
+                      <p className="font-medium text-foreground text-sm lg:text-base">Monday - Friday</p>
+                      <p className="text-xs lg:text-sm text-muted-foreground">9:00 AM - 6:00 PM PKT</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-primary" />
+                    <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-primary flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Saturday</p>
-                      <p className="text-sm text-muted-foreground">10:00 AM - 4:00 PM PKT</p>
+                      <p className="font-medium text-foreground text-sm lg:text-base">Saturday</p>
+                      <p className="text-xs lg:text-sm text-muted-foreground">10:00 AM - 4:00 PM PKT</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-muted-foreground" />
+                    <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-muted-foreground flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-muted-foreground">Sunday</p>
-                      <p className="text-sm text-muted-foreground">Closed</p>
+                      <p className="font-medium text-muted-foreground text-sm lg:text-base">Sunday</p>
+                      <p className="text-xs lg:text-sm text-muted-foreground">Closed</p>
                     </div>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-8 shadow-card">
-                <h3 className="font-serif text-2xl text-foreground mb-6">Location & Shipping</h3>
-                <div className="space-y-4">
+              <Card className="p-6 lg:p-8 shadow-card">
+                <h3 className="font-serif text-xl lg:text-2xl text-foreground mb-4 lg:mb-6">Location & Shipping</h3>
+                <div className="space-y-3 lg:space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-primary mt-1" />
+                    <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Based in Rawalpindi, Pakistan</p>
-                      <p className="text-sm text-muted-foreground">We ship countrywide with careful packaging and tracking</p>
+                      <p className="font-medium text-foreground text-sm lg:text-base">Based in Rawalpindi, Pakistan</p>
+                      <p className="text-xs lg:text-sm text-muted-foreground">We ship countrywide with careful packaging and tracking</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-primary mt-1" />
+                    <Phone className="w-4 h-4 lg:w-5 lg:h-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-foreground">Customer Support</p>
-                      <p className="text-sm text-muted-foreground">Available during business hours via WhatsApp and Instagram</p>
+                      <p className="font-medium text-foreground text-sm lg:text-base">Customer Support</p>
+                      <p className="text-xs lg:text-sm text-muted-foreground">Available during business hours via WhatsApp and Instagram</p>
                     </div>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-8 shadow-card bg-primary/5 border-primary/20">
-                <h3 className="font-serif text-2xl text-foreground mb-4">Quick Questions?</h3>
-                <p className="font-sans text-muted-foreground mb-6">
+              <Card className="p-6 lg:p-8 shadow-card bg-primary/5 border-primary/20">
+                <h3 className="font-serif text-xl lg:text-2xl text-foreground mb-3 lg:mb-4">Quick Questions?</h3>
+                <p className="font-sans text-sm lg:text-base text-muted-foreground mb-4 lg:mb-6">
                   For fastest response, reach out to us on Instagram or WhatsApp. We're always happy to help with sizing, styling, or custom order questions!
                 </p>
-                <div className="flex gap-4">
+                <div className="flex gap-3 lg:gap-4">
                   <a 
                     href="https://instagram.com/guloona.pk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-3 rounded-full font-medium hover:scale-105 transition-transform duration-300"
+                    className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-2.5 lg:py-3 rounded-full font-medium hover:scale-105 transition-transform duration-300 text-sm lg:text-base"
                   >
                     Instagram
                   </a>
@@ -366,7 +366,7 @@ export default function ContactPage() {
                     href="https://wa.me/923001234567"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-green-500 text-white text-center py-3 rounded-full font-medium hover:scale-105 transition-transform duration-300"
+                    className="flex-1 bg-green-500 text-white text-center py-2.5 lg:py-3 rounded-full font-medium hover:scale-105 transition-transform duration-300 text-sm lg:text-base"
                   >
                     WhatsApp
                   </a>

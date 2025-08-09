@@ -177,6 +177,67 @@ All colors MUST be HSL. Soft pastels inspired by flowers and femininity.
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .mobile-compact {
+    padding: 0.75rem;
+  }
+  
+  .mobile-text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .mobile-text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  
+  .mobile-spacing-tight > * + * {
+    margin-top: 0.5rem;
+  }
+  
+  .mobile-grid-sm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+/* Enhanced mobile touch targets */
+@media (max-width: 768px) {
+  button, 
+  [role="button"], 
+  input[type="button"], 
+  input[type="submit"], 
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing for mobile forms */
+  .form-field {
+    margin-bottom: 1rem;
+  }
+  
+  /* Improved mobile card layouts */
+  .mobile-card {
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+  .mobile-nav {
+    height: 3.5rem; /* 56px */
+  }
+  
+  .mobile-nav-content {
+    padding-top: 3.5rem; /* Account for mobile nav height */
+  }
+}
+
 
 
 /* Override browser autofill styling */
@@ -225,4 +286,38 @@ input:-webkit-autofill:active {
 .dark [data-radix-select-item][data-highlighted] {
   background-color: hsl(var(--accent)) !important;
   color: hsl(var(--accent-foreground)) !important;
+}
+
+/* Mobile-optimized utilities */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 768px) {
+  button, 
+  [role="button"], 
+  input[type="button"], 
+  input[type="submit"] {
+    min-height: 44px;
+  }
+  
+  /* Better mobile card spacing */
+  .mobile-card-compact {
+    padding: 0.5rem;
+  }
+  
+  .mobile-card-compact .mobile-content {
+    gap: 0.25rem;
+  }
 }

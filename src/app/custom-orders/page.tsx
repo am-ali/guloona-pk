@@ -525,15 +525,15 @@ const CustomOrders = () => {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-24 pb-12 bg-hero-gradient text-center">
+        <section className="pt-24 pb-8 lg:pb-12 bg-hero-gradient text-center">
           <div className="max-w-4xl mx-auto px-4">
-            <h1 className="font-serif text-5xl md:text-6xl text-foreground mb-6">
+            <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-foreground mb-4 lg:mb-6">
               Custom Orders
             </h1>
-            <p className="font-script text-2xl text-primary mb-4" style={{ color: "color-mix(in hsl, hsl(var(--primary)) 80%, black 20%)" }}>
+            <p className="font-script text-xl lg:text-2xl text-primary mb-3 lg:mb-4" style={{ color: "color-mix(in hsl, hsl(var(--primary)) 80%, black 20%)" }}>
               "Every flower is unique - so are you"
             </p>
-            <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-sans text-sm lg:text-lg text-muted-foreground max-w-2xl mx-auto">
               Let us create something just for you. Share your vision, and we'll bring it to life with our signature touch of elegance and simplicity.
             </p>
           </div>
@@ -622,37 +622,37 @@ const CustomOrders = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="py-16 bg-background">
+      <section className="py-8 lg:py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="font-serif text-4xl text-center text-foreground mb-12">How It Works</h2>
+          <h2 className="font-serif text-2xl lg:text-4xl text-center text-foreground mb-8 lg:mb-12">How It Works</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 shadow-card hover:shadow-soft transition-all duration-300">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-8 h-8 text-primary-foreground" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <Card className="text-center p-6 lg:p-8 shadow-card hover:shadow-soft transition-all duration-300">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 lg:mb-8">
+                <Heart className="w-8 h-8 lg:w-10 lg:h-10 text-primary-foreground" />
               </div>
-              <h3 className="font-serif text-xl text-foreground mb-4">1. Share Your Vision</h3>
-              <p className="font-sans text-muted-foreground">
+              <h3 className="font-serif text-lg lg:text-xl text-foreground mb-4 lg:mb-6">1. Share Your Vision</h3>
+              <p className="font-sans text-sm lg:text-base text-muted-foreground leading-relaxed">
                 Tell us about your dream dress. Share inspiration photos, describe your style, and let us know the occasion.
               </p>
             </Card>
 
-            <Card className="text-center p-8 shadow-card hover:shadow-soft transition-all duration-300">
-              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                <Scissors className="w-8 h-8 text-foreground" />
+            <Card className="text-center p-6 lg:p-8 shadow-card hover:shadow-soft transition-all duration-300">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 lg:mb-8">
+                <Scissors className="w-8 h-8 lg:w-10 lg:h-10 text-foreground" />
               </div>
-              <h3 className="font-serif text-xl text-foreground mb-4">2. We Design & Create</h3>
-              <p className="font-sans text-muted-foreground">
+              <h3 className="font-serif text-lg lg:text-xl text-foreground mb-4 lg:mb-6">2. We Design & Create</h3>
+              <p className="font-sans text-sm lg:text-base text-muted-foreground leading-relaxed">
                 Our skilled artisans will carefully craft your unique piece with attention to every detail and finish.
               </p>
             </Card>
 
-            <Card className="text-center p-8 shadow-card hover:shadow-soft transition-all duration-300">
-              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-8 h-8 text-foreground" />
+            <Card className="text-center p-6 lg:p-8 shadow-card hover:shadow-soft transition-all duration-300">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 lg:mb-8">
+                <Sparkles className="w-8 h-8 lg:w-10 lg:h-10 text-foreground" />
               </div>
-              <h3 className="font-serif text-xl text-foreground mb-4">3. Receive Your Masterpiece</h3>
-              <p className="font-sans text-muted-foreground">
+              <h3 className="font-serif text-lg lg:text-xl text-foreground mb-4 lg:mb-6">3. Receive Your Masterpiece</h3>
+              <p className="font-sans text-sm lg:text-base text-muted-foreground leading-relaxed">
                 Your custom creation will be delivered with care, ready to make you feel beautiful and confident.
               </p>
             </Card>
@@ -661,25 +661,25 @@ const CustomOrders = () => {
       </section>
 
       {/* Custom Order Form */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-8 lg:py-16 bg-muted/20">
         <div className="max-w-4xl mx-auto px-4">
-          <Card className="p-8 md:p-12 shadow-soft">
-            <h2 className="font-serif text-4xl text-center text-foreground mb-8">
+          <Card className="p-4 lg:p-8 xl:p-12 shadow-soft">
+            <h2 className="font-serif text-2xl lg:text-4xl text-center text-foreground mb-6 lg:mb-8">
               Start Your Custom Order
             </h2>
             
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6 lg:space-y-8">
               {/* Personal Information */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 <div>
-                  <Label htmlFor="name" className="font-sans font-medium">
+                  <Label htmlFor="name" className="font-sans font-medium text-sm lg:text-base">
                     Full Name *
                     <span className="text-xs text-muted-foreground ml-2">(from your account)</span>
                   </Label>
                   <Input 
                     id="name" 
                     placeholder="Your full name" 
-                    className="mt-2 bg-muted/50"
+                    className="mt-1.5 lg:mt-2 bg-muted/50"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     required
@@ -689,7 +689,7 @@ const CustomOrders = () => {
                   </p>
                 </div>
                 <div>
-                  <Label htmlFor="email" className="font-sans font-medium">
+                  <Label htmlFor="email" className="font-sans font-medium text-sm lg:text-base">
                     Email Address *
                     <span className="text-xs text-muted-foreground ml-2">(from your account)</span>
                   </Label>
@@ -697,7 +697,7 @@ const CustomOrders = () => {
                     id="email" 
                     type="email" 
                     placeholder="your@email.com" 
-                    className="mt-2 bg-muted/50"
+                    className="mt-1.5 lg:mt-2 bg-muted/50"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     required
@@ -708,23 +708,23 @@ const CustomOrders = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 <div>
-                  <Label htmlFor="phone" className="font-sans font-medium">Phone Number</Label>
+                  <Label htmlFor="phone" className="font-sans font-medium text-sm lg:text-base">Phone Number</Label>
                   <Input 
                     id="phone" 
                     placeholder="+92 300 1234567" 
-                    className="mt-2"
+                    className="mt-1.5 lg:mt-2"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="location" className="font-sans font-medium">Location/City</Label>
+                  <Label htmlFor="location" className="font-sans font-medium text-sm lg:text-base">Location/City</Label>
                   <Input 
                     id="location" 
                     placeholder="Your city" 
-                    className="mt-2"
+                    className="mt-1.5 lg:mt-2"
                     value={formData.location}
                     onChange={(e) => handleInputChange('location', e.target.value)}
                   />
@@ -732,14 +732,14 @@ const CustomOrders = () => {
               </div>
 
               {/* Dress Specifications */}
-              <div className="space-y-6">
-                <h3 className="font-serif text-2xl text-foreground">Dress Details</h3>
+              <div className="space-y-4 lg:space-y-6">
+                <h3 className="font-serif text-xl lg:text-2xl text-foreground">Dress Details</h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                   <div>
-                    <Label htmlFor="occasion" className="font-sans font-medium">Occasion *</Label>
+                    <Label htmlFor="occasion" className="font-sans font-medium text-sm lg:text-base">Occasion *</Label>
                     <Select value={formData.occasion} onValueChange={(value) => handleInputChange('occasion', value)}>
-                      <SelectTrigger className="mt-2">
+                      <SelectTrigger className="mt-1.5 lg:mt-2">
                         <SelectValue placeholder="Select occasion" />
                       </SelectTrigger>
                       <SelectContent>
@@ -754,9 +754,9 @@ const CustomOrders = () => {
                   </div>
                   
                   <div>
-                    <Label htmlFor="fabric" className="font-sans font-medium">Fabric Preference</Label>
+                    <Label htmlFor="fabric" className="font-sans font-medium text-sm lg:text-base">Fabric Preference</Label>
                     <Select value={formData.fabric} onValueChange={(value) => handleInputChange('fabric', value)}>
-                      <SelectTrigger className="mt-2">
+                      <SelectTrigger className="mt-1.5 lg:mt-2">
                         <SelectValue placeholder="Select fabric" />
                       </SelectTrigger>
                       <SelectContent>
@@ -773,59 +773,59 @@ const CustomOrders = () => {
               </div>
 
               {/* Measurements */}
-              <div className="space-y-6">
-                <h3 className="font-serif text-2xl text-foreground">Measurements</h3>
-                <p className="font-sans text-sm text-muted-foreground">
+              <div className="space-y-4 lg:space-y-6">
+                <h3 className="font-serif text-xl lg:text-2xl text-foreground">Measurements</h3>
+                <p className="font-sans text-xs lg:text-sm text-muted-foreground">
                   Please provide your measurements in inches. We'll also schedule a fitting call to ensure perfect fit.
                 </p>
                 
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-3 lg:gap-4">
                   <div>
-                    <Label htmlFor="bust" className="font-sans font-medium">Bust</Label>
+                    <Label htmlFor="bust" className="font-sans font-medium text-sm lg:text-base">Bust</Label>
                     <Input 
                       id="bust" 
                       placeholder="32" 
-                      className="mt-2"
+                      className="mt-1.5 lg:mt-2"
                       value={formData.bust}
                       onChange={(e) => handleInputChange('bust', e.target.value)}
                     />
                   </div>
                   <div>
-                    <Label htmlFor="waist" className="font-sans font-medium">Waist</Label>
+                    <Label htmlFor="waist" className="font-sans font-medium text-sm lg:text-base">Waist</Label>
                     <Input 
                       id="waist" 
                       placeholder="26" 
-                      className="mt-2"
+                      className="mt-1.5 lg:mt-2"
                       value={formData.waist}
                       onChange={(e) => handleInputChange('waist', e.target.value)}
                     />
                   </div>
                   <div>
-                    <Label htmlFor="hips" className="font-sans font-medium">Hips</Label>
+                    <Label htmlFor="hips" className="font-sans font-medium text-sm lg:text-base">Hips</Label>
                     <Input 
                       id="hips" 
                       placeholder="36" 
-                      className="mt-2"
+                      className="mt-1.5 lg:mt-2"
                       value={formData.hips}
                       onChange={(e) => handleInputChange('hips', e.target.value)}
                     />
                   </div>
                   <div>
-                    <Label htmlFor="shoulder_width" className="font-sans font-medium">Shoulder Width</Label>
+                    <Label htmlFor="shoulder_width" className="font-sans font-medium text-sm lg:text-base">Shoulder Width</Label>
                     <Input 
                       id="shoulder_width" 
                       placeholder="14" 
-                      className="mt-2"
+                      className="mt-1.5 lg:mt-2"
                       value={formData.shoulder_width}
                       onChange={(e) => handleInputChange('shoulder_width', e.target.value)}
                     />
                   </div>
                   <div>
-                    <Label htmlFor="height" className="font-sans font-medium">Height</Label>
+                    <Label htmlFor="height" className="font-sans font-medium text-sm lg:text-base">Height</Label>
                     <Input 
                       id="height" 
                       placeholder="65" 
-                      className="mt-2"
+                      className="mt-1.5 lg:mt-2"
                       value={formData.height}
                       onChange={(e) => handleInputChange('height', e.target.value)}
                     />
@@ -835,15 +835,15 @@ const CustomOrders = () => {
 
               {/* Inspiration Upload */}
               <div>
-                <Label htmlFor="inspiration" className="font-sans font-medium">
+                <Label htmlFor="inspiration" className="font-sans font-medium text-sm lg:text-base">
                   Inspiration Photos ({files.length}/3)
                 </Label>
                 <div 
-                  className="mt-2 border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer"
+                  className="mt-1.5 lg:mt-2 border-2 border-dashed border-border rounded-lg p-4 lg:p-8 text-center hover:border-primary transition-colors cursor-pointer"
                   onClick={() => document.getElementById('file-input')?.click()}
                 >
-                  <Upload className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="font-sans text-muted-foreground mb-2">
+                  <Upload className="w-8 h-8 lg:w-12 lg:h-12 text-muted-foreground mx-auto mb-3 lg:mb-4" />
+                  <p className="font-sans text-sm lg:text-base text-muted-foreground mb-1 lg:mb-2">
                     Drag & drop your inspiration photos here, or click to browse
                   </p>
                   <p className="font-sans text-xs text-muted-foreground">
@@ -861,17 +861,17 @@ const CustomOrders = () => {
 
                 {/* File Preview */}
                 {files.length > 0 && (
-                  <div className="mt-4 space-y-2">
+                  <div className="mt-3 lg:mt-4 space-y-2">
                     <p className="font-sans text-sm font-medium">Selected Files:</p>
                     {files.map((file, index) => (
-                      <div key={index} className="flex items-center justify-between bg-muted p-2 rounded">
-                        <span className="font-sans text-sm truncate">{file.name}</span>
+                      <div key={index} className="flex items-center justify-between bg-muted p-2 rounded text-sm">
+                        <span className="font-sans truncate">{file.name}</span>
                         <Button
                           type="button"
                           variant="ghost"
                           size="sm"
                           onClick={() => removeFile(index)}
-                          className="text-red-500 hover:text-red-700"
+                          className="text-red-500 hover:text-red-700 text-xs"
                         >
                           Remove
                         </Button>
@@ -883,11 +883,11 @@ const CustomOrders = () => {
 
               {/* Special Notes */}
               <div>
-                <Label htmlFor="notes" className="font-sans font-medium">Special Notes & Details</Label>
+                <Label htmlFor="notes" className="font-sans font-medium text-sm lg:text-base">Special Notes & Details</Label>
                 <Textarea 
                   id="notes"
                   placeholder="Tell us about your vision, preferred colors, specific details, or any special requests..."
-                  className="mt-2 min-h-[120px]"
+                  className="mt-1.5 lg:mt-2 min-h-[100px] lg:min-h-[120px]"
                   value={formData.notes}
                   onChange={(e) => handleInputChange('notes', e.target.value)}
                 />
@@ -895,9 +895,9 @@ const CustomOrders = () => {
 
               {/* Budget Range */}
               <div>
-                <Label htmlFor="budget" className="font-sans font-medium">Budget Range</Label>
+                <Label htmlFor="budget" className="font-sans font-medium text-sm lg:text-base">Budget Range</Label>
                 <Select value={formData.budget} onValueChange={(value) => handleInputChange('budget', value)}>
-                  <SelectTrigger className="mt-2">
+                  <SelectTrigger className="mt-1.5 lg:mt-2">
                     <SelectValue placeholder="Select your budget range" />
                   </SelectTrigger>
                     <SelectContent>
@@ -911,22 +911,22 @@ const CustomOrders = () => {
               </div>
 
               {/* Submit Button */}
-              <div className="text-center pt-6">
+              <div className="text-center pt-4 lg:pt-6">
                 <Button 
                   type="submit" 
                   variant="elegant" 
                   size="elegant" 
-                  className="min-w-48"
+                  className="w-full sm:w-auto sm:min-w-48"
                   disabled={loadingSubmit}
                 >
                   {loadingSubmit ? 'Submitting...' : 'Submit Custom Order'}
                 </Button>
-                <p className="font-sans text-sm text-muted-foreground mt-4">
+                <p className="font-sans text-xs lg:text-sm text-muted-foreground mt-3 lg:mt-4">
                   We'll get back to you within 24 hours with a detailed quote and timeline.
                 </p>
                 
                 {/* Account info */}
-                <div className="mt-4 p-3 bg-primary/5 rounded-lg">
+                <div className="mt-3 lg:mt-4 p-2 lg:p-3 bg-primary/5 rounded-lg">
                   <p className="text-xs text-muted-foreground">
                     <Shield className="w-3 h-3 inline mr-1" />
                     Signed in as {user?.email} • Order tracking will be available in your account

@@ -140,42 +140,42 @@ const Gallery = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-hero-gradient text-center">
+      <section className="pt-24 pb-8 lg:pb-12 bg-hero-gradient text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-foreground mb-6">
+          <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-foreground mb-4 lg:mb-6">
             Gallery
           </h1>
-          <p className="font-script text-2xl text-primary mb-4" style={{ color: "color-mix(in hsl, hsl(var(--primary)) 80%, black 20%)" }}>
+          <p className="font-script text-xl lg:text-2xl text-primary mb-3 lg:mb-4" style={{ color: "color-mix(in hsl, hsl(var(--primary)) 80%, black 20%)" }}>
             #GuloonaAttires
           </p>
-          <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-sans text-sm lg:text-lg text-muted-foreground max-w-2xl mx-auto">
             A beautiful collection of moments shared by our amazing community. Each photo tells a story of elegance, confidence, and timeless beauty.
           </p>
         </div>
       </section>
 
       {/* Upload Section */}
-      <section className="py-16 bg-background">
+      <section className="py-8 lg:py-16 bg-background">
         <div className="max-w-4xl mx-auto px-4">
-          <Card className="p-8 md:p-12 shadow-soft text-center">
-            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Camera className="w-10 h-10 text-primary" />
+          <Card className="p-4 lg:p-8 xl:p-12 shadow-soft text-center">
+            <div className="w-16 h-16 lg:w-20 lg:h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6">
+              <Camera className="w-8 h-8 lg:w-10 lg:h-10 text-primary" />
             </div>
-            <h2 className="font-serif text-3xl text-foreground mb-4">
+            <h2 className="font-serif text-2xl lg:text-3xl text-foreground mb-3 lg:mb-4">
               Share Your Guloona Moment
             </h2>
-            <p className="font-sans text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="font-sans text-sm lg:text-base text-muted-foreground mb-6 lg:mb-8 max-w-2xl mx-auto">
               We'd love to see how you style your Guloona pieces! Share your photos with us and become part of our beautiful gallery.
             </p>
             
-            <div className="space-y-6">
+            <div className="space-y-4 lg:space-y-6">
               {/* Upload Area */}
               <div 
-                className="border-2 border-dashed border-border rounded-lg p-8 hover:border-primary transition-colors cursor-pointer"
+                className="border-2 border-dashed border-border rounded-lg p-4 lg:p-8 hover:border-primary transition-colors cursor-pointer"
                 onClick={handleUploadClick}
               >
-                <Upload className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                <p className="font-sans text-muted-foreground mb-2">
+                <Upload className="w-8 h-8 lg:w-12 lg:h-12 text-muted-foreground mx-auto mb-3 lg:mb-4" />
+                <p className="font-sans text-sm lg:text-base text-muted-foreground mb-1 lg:mb-2">
                   Click here to upload your photo
                 </p>
                 <p className="font-sans text-xs text-muted-foreground">
@@ -184,23 +184,23 @@ const Gallery = () => {
               </div>
               
               {/* Social Media Instructions */}
-              <div className="bg-muted/30 rounded-lg p-6">
-                <h3 className="font-serif text-xl text-foreground mb-4">Or share on social media:</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-center gap-2 text-muted-foreground">
+              <div className="bg-muted/30 rounded-lg p-4 lg:p-6">
+                <h3 className="font-serif text-lg lg:text-xl text-foreground mb-3 lg:mb-4">Or share on social media:</h3>
+                <div className="space-y-2 lg:space-y-3">
+                  <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm lg:text-base">
                     <span className="font-sans">1. Post your photo on Instagram</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                  <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm lg:text-base">
                     <span className="font-sans">2. Tag us</span>
                     <span className="font-medium text-primary">@guloona.pk</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                  <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm lg:text-base">
                     <span className="font-sans">3. Use hashtag</span>
                     <span className="font-medium text-primary">#GuloonaAttires</span>
                   </div>
                 </div>
-                <Button variant="elegant" className="mt-6">
-                  <Instagram className="w-5 h-5 mr-2" />
+                <Button variant="elegant" className="mt-4 lg:mt-6 w-full sm:w-auto" size="sm">
+                  <Instagram className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
                   Follow @guloona.pk
                 </Button>
               </div>
@@ -210,21 +210,22 @@ const Gallery = () => {
       </section>
 
       {/* Filter/Search Bar */}
-      <section className="py-8 bg-muted/20">
+      <section className="py-4 lg:py-8 bg-muted/20">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div className="flex items-center gap-4 w-full lg:w-auto">
               <Input 
                 placeholder="Search by username, caption, or hashtag..." 
-                className="w-80"
+                className="w-full lg:w-80"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap justify-center lg:justify-start">
               <Button 
                 variant="ghost" 
                 size="sm"
+                className="text-xs lg:text-sm px-2 lg:px-3"
                 onClick={() => setSearchTerm("#GuloonaAttires")}
               >
                 #GuloonaAttires
@@ -232,6 +233,7 @@ const Gallery = () => {
               <Button 
                 variant="ghost" 
                 size="sm"
+                className="text-xs lg:text-sm px-2 lg:px-3"
                 onClick={() => setSearchTerm("#MinimalistFashion")}
               >
                 #MinimalistFashion
@@ -239,6 +241,7 @@ const Gallery = () => {
               <Button 
                 variant="ghost" 
                 size="sm"
+                className="text-xs lg:text-sm px-2 lg:px-3"
                 onClick={() => setSearchTerm("#ElegantStyle")}
               >
                 #ElegantStyle
@@ -249,7 +252,7 @@ const Gallery = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-8 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4">
           {loading ? (
             <div className="text-center py-12">
@@ -260,11 +263,11 @@ const Gallery = () => {
             <>
               {/* Real Posts from Database */}
               {filteredPosts.length > 0 && (
-                <div className="mb-16">
-                  <h3 className="font-serif text-2xl text-foreground mb-8 text-center">
+                <div className="mb-8 lg:mb-16">
+                  <h3 className="font-serif text-xl lg:text-2xl text-foreground mb-6 lg:mb-8 text-center">
                     Community Uploads
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-8">
                     {filteredPosts.map((post, index) => (
                       <Card key={post._id} className="group overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                         <div className="relative aspect-square">
@@ -277,56 +280,61 @@ const Gallery = () => {
                           {/* Overlay */}
                           <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <div className="text-center text-white p-4">
-                              <User className="w-8 h-8 mx-auto mb-2" />
-                              <p className="font-medium">{post.username}</p>
+                              <User className="w-6 h-6 lg:w-8 lg:h-8 mx-auto mb-2" />
+                              <p className="font-medium text-sm lg:text-base">{post.username}</p>
                               {post.caption && (
-                                <p className="text-sm mt-2 opacity-90">{post.caption}</p>
+                                <p className="text-xs lg:text-sm mt-2 opacity-90">{post.caption}</p>
                               )}
                             </div>
                           </div>
                           
                           {/* Heart Icon */}
                           <button 
-                            className={`absolute top-4 right-4 p-2 backdrop-blur-sm rounded-full transition-all opacity-0 group-hover:opacity-100 ${
+                            className={`absolute top-2 right-2 lg:top-4 lg:right-4 p-1.5 lg:p-2 backdrop-blur-sm rounded-full transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center ${
                               hasUserLiked(post) 
                                 ? 'bg-red-500 text-white' 
                                 : 'bg-background/80 hover:bg-primary hover:text-primary-foreground'
                             }`}
                             onClick={() => handleLike(post._id)}
                           >
-                            <Heart className={`w-5 h-5 ${hasUserLiked(post) ? 'fill-current' : ''}`} />
+                            <Heart className={`w-4 h-4 lg:w-5 lg:h-5 ${hasUserLiked(post) ? 'fill-current' : ''}`} />
                           </button>
                         </div>
                         
-                        <div className="p-6">
-                          <div className="flex items-center justify-between mb-3">
-                            <div className="flex items-center gap-2">
-                              <User className="w-4 h-4 text-muted-foreground" />
-                              <p className="font-medium text-foreground">{post.username}</p>
+                        <div className="p-3 lg:p-6">
+                          <div className="flex items-center justify-between mb-2 lg:mb-4">
+                            <div className="flex items-center gap-1.5 lg:gap-2">
+                              <User className="w-3 h-3 lg:w-4 lg:h-4 text-muted-foreground flex-shrink-0" />
+                              <p className="font-medium text-foreground text-xs lg:text-base truncate">{post.username}</p>
                             </div>
-                            <div className="flex items-center gap-4 text-muted-foreground">
-                              <div className="flex items-center gap-1">
-                                <Heart className="w-4 h-4" />
-                                <span className="text-sm">{post.likes}</span>
+                            <div className="flex items-center gap-3 lg:gap-4 text-muted-foreground">
+                              <div className="flex items-center gap-1 lg:gap-1">
+                                <Heart className="w-3 h-3 lg:w-4 lg:h-4" />
+                                <span className="text-xs lg:text-sm">{post.likes}</span>
                               </div>
-                              <div className="flex items-center gap-1">
-                                <Calendar className="w-4 h-4" />
-                                <span className="text-sm">{formatDate(post.created_at)}</span>
+                              <div className="flex items-center gap-1 lg:gap-1">
+                                <Calendar className="w-3 h-3 lg:w-4 lg:h-4" />
+                                <span className="text-xs lg:text-sm">{formatDate(post.created_at)}</span>
                               </div>
                             </div>
                           </div>
                           
                           {post.caption && (
-                            <p className="text-sm text-muted-foreground mb-3">{post.caption}</p>
+                            <p className="text-xs lg:text-sm text-muted-foreground mb-3 lg:mb-4 line-clamp-2">{post.caption}</p>
                           )}
                           
-                          <div className="flex flex-wrap gap-2">
-                            {post.hashtags.map((tag, tagIndex) => (
-                              <Badge key={tagIndex} variant="secondary" className="text-xs">
-                                <Hash className="w-3 h-3 mr-1" />
+                          <div className="flex flex-wrap gap-1.5 lg:gap-2">
+                            {post.hashtags.slice(0, 2).map((tag, tagIndex) => (
+                              <Badge key={tagIndex} variant="secondary" className="text-xs px-1.5 py-1 lg:px-2 lg:py-1">
+                                <Hash className="w-2.5 h-2.5 lg:w-3 lg:h-3 mr-1" />
                                 {tag.replace('#', '')}
                               </Badge>
                             ))}
+                            {post.hashtags.length > 2 && (
+                              <Badge variant="secondary" className="text-xs px-1.5 py-1 lg:px-2 lg:py-1">
+                                +{post.hashtags.length - 2}
+                              </Badge>
+                            )}
                           </div>
                         </div>
                       </Card>
@@ -337,10 +345,10 @@ const Gallery = () => {
 
               {/* Mock Gallery Data */}
               <div>
-                <h3 className="font-serif text-2xl text-foreground mb-8 text-center">
+                <h3 className="font-serif text-xl lg:text-2xl text-foreground mb-6 lg:mb-8 text-center">
                   Featured Gallery
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-8">
                   {mockGalleryImages.map((item, index) => (
                     <Card key={item.id} className="group overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in" style={{ animationDelay: `${(filteredPosts.length + index) * 100}ms` }}>
                       <div className="relative aspect-square">
@@ -353,29 +361,29 @@ const Gallery = () => {
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <div className="text-center text-white">
-                            <Instagram className="w-8 h-8 mx-auto mb-2" />
-                            <p className="font-medium">{item.username}</p>
+                            <Instagram className="w-6 h-6 lg:w-8 lg:h-8 mx-auto mb-2" />
+                            <p className="font-medium text-sm lg:text-base">{item.username}</p>
                           </div>
                         </div>
                         
                         {/* Heart Icon */}
-                        <button className="absolute top-4 right-4 p-2 bg-background/80 backdrop-blur-sm rounded-full hover:bg-primary hover:text-primary-foreground transition-colors opacity-0 group-hover:opacity-100">
-                          <Heart className="w-5 h-5" />
+                        <button className="absolute top-2 right-2 lg:top-4 lg:right-4 p-1.5 lg:p-2 bg-background/80 backdrop-blur-sm rounded-full hover:bg-primary hover:text-primary-foreground transition-colors opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                          <Heart className="w-4 h-4 lg:w-5 lg:h-5" />
                         </button>
                       </div>
                       
-                      <div className="p-6">
-                        <div className="flex items-center justify-between mb-3">
-                          <p className="font-medium text-foreground">{item.username}</p>
-                          <div className="flex items-center gap-1 text-muted-foreground">
-                            <Heart className="w-4 h-4" />
-                            <span className="text-sm">{item.likes}</span>
+                      <div className="p-3 lg:p-6">
+                        <div className="flex items-center justify-between mb-2 lg:mb-4">
+                          <p className="font-medium text-foreground text-xs lg:text-base truncate">{item.username}</p>
+                          <div className="flex items-center gap-1 lg:gap-1 text-muted-foreground">
+                            <Heart className="w-3 h-3 lg:w-4 lg:h-4" />
+                            <span className="text-xs lg:text-sm">{item.likes}</span>
                           </div>
                         </div>
                         
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1.5 lg:gap-2">
                           {item.hashtags.map((tag, tagIndex) => (
-                            <Badge key={tagIndex} variant="secondary" className="text-xs">
+                            <Badge key={tagIndex} variant="secondary" className="text-xs px-1.5 py-1 lg:px-2 lg:py-1">
                               {tag}
                             </Badge>
                           ))}

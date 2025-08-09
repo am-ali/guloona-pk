@@ -25,16 +25,16 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="animate-fade-in">
           {/* Logo */}
-          <div className="mb-8">
-            <Logo size="xl" className="mx-auto text-foreground" />
+          <div className="mb-6 lg:mb-8">
+            <Logo size="xl" className="mx-auto text-foreground scale-90 lg:scale-100" />
           </div>
           
           {/* Tagline */}
-          <p className="font-serif text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-2">
+          <p className="font-serif text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-muted-foreground mb-2">
             A Floral Fable
           </p>
           
-          <p className="font-sans text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="font-sans text-sm lg:text-base xl:text-lg text-muted-foreground mb-6 lg:mb-8 max-w-2xl mx-auto">
             Where Elegance Meets Simplicity
           </p>
           
@@ -42,7 +42,7 @@ const HeroSection = () => {
           <Button 
             variant="elegant" 
             size="elegant" 
-            className="hover:scale-105 transition-transform duration-300"
+            className="hover:scale-105 transition-transform duration-300 w-full sm:w-auto"
             onClick={handleExploreClick}
           >
             Explore the Minimal Collection
